@@ -163,7 +163,7 @@ class AnnotationDriver extends AbstractAnnotationDriver
                         $indexes[] = $index;
                     }
                 } elseif ($annot instanceof ODM\AlsoLoad) {
-                    $mapping['alsoLoadFields'] = (array) $annot->value;
+                    $mapping['alsoLoadFields'] = (array) $annot->name;
                 } elseif ($annot instanceof ODM\Version) {
                     $mapping['version'] = true;
                 } elseif ($annot instanceof ODM\Lock) {
@@ -203,7 +203,7 @@ class AnnotationDriver extends AbstractAnnotationDriver
 
             foreach ($this->reader->getMethodAnnotations($method) as $annot) {
                 if ($annot instanceof ODM\AlsoLoad) {
-                    $class->registerAlsoLoadMethod($method->getName(), $annot->value);
+                    $class->registerAlsoLoadMethod($method->getName(), $annot->name);
                 }
 
                 if (! isset($classAnnotations[ODM\HasLifecycleCallbacks::class])) {

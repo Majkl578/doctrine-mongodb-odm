@@ -7,7 +7,7 @@ namespace Doctrine\ODM\MongoDB\Mapping\Annotations;
 use Doctrine\Common\Annotations\Annotation;
 use function sprintf;
 
-abstract class AbstractField extends Annotation
+abstract class AbstractField
 {
     /** @var string */
     public $name;
